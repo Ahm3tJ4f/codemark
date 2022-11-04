@@ -55,12 +55,6 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 
-
-
-
-
-
-
 interface LocalForageDbMethodsCore {
   getItem<T>(
     key: string,
