@@ -55,9 +55,3 @@ const App: React.FC = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById("root") as HTMLElement);
-
-// interface LocalForageDbMethodsCore {
-//   getItem<T>(
-//     key: string,
-//   ): Promise<T | null>;
-// }
