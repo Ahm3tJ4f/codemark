@@ -9,7 +9,7 @@ export const unpkgPathPlugin = () => {
   return {
     name: "unpkg-path-plugin",
     setup(build: esbuild.PluginBuild) {
-      build.onResolve({ filter: /.*/ }, async (args: any) => {
+      build.onResolve({ filter: /.*/ }, async (args) => {
         if (args.path === "index.js") {
           return {
             path: args.path,
@@ -33,11 +33,11 @@ export const unpkgPathPlugin = () => {
         };
       });
 
-      build.onLoad({ filter: /.*/ }, async (args: any) => {
+      build.onLoad({ filter: /.*/ }, async (args) => {
         if (args.path === "index.js") {
           return {
             loader: "jsx",
-            contents: `import { useState } from 'nested-test-pkg'`,
+            contents: `import { useState } from "nested-test-pkg"`,
           };
         }
 
@@ -51,12 +51,11 @@ export const unpkgPathPlugin = () => {
 
         const { data, request } = await axios.get(args.path);
         fileCache.setItem(args.path, data);
-        const fileDir = new URL("./", request.responseURL).pathname;
 
         const result: esbuild.OnLoadResult = {
           loader: "jsx",
           contents: data,
-          resolveDir: fileDir,
+          resolveDir: new URL("./", request.responseURL).pathname,
         };
         fileCache.setItem(args.path, result);
         return result;
