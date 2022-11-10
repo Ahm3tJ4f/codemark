@@ -5,7 +5,7 @@ import localForage from "localforage";
 const fileCache = localForage.createInstance({
   name: "filecache",
 });
-export const unpkgPathPlugin = () => {
+export const unpkgPathPlugin = (input: string) => {
   return {
     name: "unpkg-path-plugin",
     setup(build: esbuild.PluginBuild) {
@@ -37,7 +37,7 @@ export const unpkgPathPlugin = () => {
         if (args.path === "index.js") {
           return {
             loader: "jsx",
-            contents: `import { useState } from "nested-test-pkg"`,
+            contents: input,
           };
         }
 
