@@ -38,14 +38,12 @@ const App: React.FC = () => {
     setCode(result.outputFiles[0].text);
   };
 
+  const handleChange = (e: any) => {
+    setInput(e.target.value);
+  };
   return (
     <div>
-      <textarea
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-      ></textarea>
+      <textarea value={input} onChange={handleChange}></textarea>
       <div className="">
         <button onClick={handleSubmit}>Submit</button>
       </div>
