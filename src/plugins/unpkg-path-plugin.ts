@@ -9,24 +9,26 @@ export const unpkgPathPlugin = (input: string) => {
   return {
     name: "unpkg-path-plugin",
     setup(build: esbuild.PluginBuild) {
+      //handle root entry file of 'index.js'
+      build.onResolve({ filter: /(^index\.js$)/ }, () => {
+        return {
+          path: "index.js",
+          namespace: "a",
+        };
+      });
+      // handle relative paths in modules
+      build.onResolve({ filter: /^\.+\// }, (args) => {
+        const newURL = new URL(
+          args.path,
+          "https://unpkg.com" + args.resolveDir + "/"
+        );
+        return {
+          namespace: "a",
+          path: newURL.href,
+        };
+      });
+      // handle requested file in module
       build.onResolve({ filter: /.*/ }, async (args) => {
-        if (args.path === "index.js") {
-          return {
-            path: args.path,
-            namespace: "a",
-          };
-        }
-
-        if (args.path.includes("./") || args.path.includes("../")) {
-          const newURL = new URL(
-            args.path,
-            "https://unpkg.com" + args.resolveDir + "/"
-          );
-          return {
-            namespace: "a",
-            path: newURL.href,
-          };
-        }
         return {
           namespace: "a",
           path: `https://unpkg.com/${args.path}`,
@@ -41,6 +43,7 @@ export const unpkgPathPlugin = (input: string) => {
           };
         }
 
+        // eslint-disable-next-line prettier/prettier
         const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
           args.path
         );
