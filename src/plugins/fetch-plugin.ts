@@ -1,6 +1,8 @@
 import * as esbuild from "esbuild-wasm";
 import localForage from "localforage";
 import axios from "axios";
+import { stringify } from "querystring";
+import { type } from "os";
 
 const fileCache = localForage.createInstance({
   name: "filecache",
@@ -26,12 +28,27 @@ export const fetchPlugin = (input: string) => {
           return cachedResult;
         }
 
+        console.log(args.path);
         const { data, request } = await axios.get(args.path);
-        fileCache.setItem(args.path, data);
 
+        fileCache.setItem(args.path, data);
+        const escapedData = data
+          .replace(/\n/g, "")
+          .replace(/"/g, '\\"')
+          .replace(/'/g, "\\'");
+
+        const fileType = args.path.split(".").pop() === "css" ? "css" : "jsx";
+        const contents =
+          fileType === "css"
+            ? `
+          const style = document.createElement('style');
+          style.innerText = '${escapedData}';
+          document.head.appendChild(style);
+          `
+            : data;
         const result: esbuild.OnLoadResult = {
           loader: "jsx",
-          contents: data,
+          contents: contents,
           resolveDir: new URL("./", request.responseURL).pathname,
         };
         fileCache.setItem(args.path, result);
