@@ -48,6 +48,7 @@ const App: React.FC = () => {
         <button onClick={handleSubmit}>Submit</button>
       </div>
       <pre>{code}</pre>
+      <iframe src="/test.html" />
     </div>
   );
 };
