@@ -5,7 +5,7 @@ import { unpkgPathPlugin } from "plugins/unpkg-path-plugin";
 import { fetchPlugin } from "plugins/fetch-plugin";
 const App: React.FC = () => {
   const [input, setInput] = useState("");
-  const [code, setCode] = useState("");
+  const iframe = useRef<any>();
   const ref = useRef<any>();
 
   const startService = async () => {
@@ -24,8 +24,10 @@ const App: React.FC = () => {
       return;
     }
 
+    iframe.current.srcdoc = html;
+
+    //bundling
     const result = await ref.current.build({
-      //bundling
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
@@ -35,20 +37,46 @@ const App: React.FC = () => {
         global: "window",
       },
     });
-    setCode(result.outputFiles[0].text);
+    iframe.current.contentWindow.postMessage(result.outputFiles[0].text, "*");
   };
 
   const handleChange = (e: any) => {
     setInput(e.target.value);
   };
+
+  const html = `
+  <html>
+    <head>
+    </head>
+    <body>
+      <div id="root"></div>
+      <script>
+        window.addEventListener("message", (event)=> {
+         try{
+          eval(event.data)
+         } catch (err) {
+          console.log(err)
+          const root = document.querySelector("#root");
+          root.innerHTML = '<div style="color: #b80000;"><h4>Runtime Error</h4>' + err + '</div>';
+         }
+        })
+      </script>
+    </body>
+  </html>
+    `;
+
   return (
     <div>
       <textarea value={input} onChange={handleChange}></textarea>
       <div className="">
         <button onClick={handleSubmit}>Submit</button>
       </div>
-      <pre>{code}</pre>
-      <iframe src="/test.html" />
+      <iframe
+        title="codePreview"
+        srcDoc={html}
+        ref={iframe}
+        sandbox="allow-scripts"
+      />
     </div>
   );
 };
