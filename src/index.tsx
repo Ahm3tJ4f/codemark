@@ -3,6 +3,8 @@ import * as ReactDOM from "react-dom";
 import * as esbuild from "esbuild-wasm";
 import { unpkgPathPlugin } from "plugins/unpkg-path-plugin";
 import { fetchPlugin } from "plugins/fetch-plugin";
+import CodeEditor from "components/code-editor/code-editor";
+
 const App: React.FC = () => {
   const [input, setInput] = useState("");
   const iframe = useRef<any>();
@@ -19,7 +21,7 @@ const App: React.FC = () => {
     startService();
   }, []);
 
-  const handleSubmit = async () => {
+  const onClick = async () => {
     if (!ref.current) {
       return;
     }
@@ -40,8 +42,8 @@ const App: React.FC = () => {
     iframe.current.contentWindow.postMessage(result.outputFiles[0].text, "*");
   };
 
-  const handleChange = (e: any) => {
-    setInput(e.target.value);
+  const handleChange = (value: string) => {
+    setInput(value);
   };
 
   const html = `
@@ -66,10 +68,13 @@ const App: React.FC = () => {
     `;
 
   return (
-    <div>
-      <textarea value={input} onChange={handleChange}></textarea>
+    <div className="">
+      <CodeEditor
+        onChange={handleChange}
+        initialValue="//start writing your dream code!"
+      />
       <div className="">
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={onClick}>Submit</button>
       </div>
       <iframe
         title="codePreview"
