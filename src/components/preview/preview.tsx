@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "./preview.css";
 interface PreviewProps {
   code: string;
+  err: string;
 }
 
 const html = `
@@ -19,6 +20,7 @@ const html = `
          }
          
          window.addEventListener("error", (event) => {
+         event.preventDefault();
          showError(event.error);
          });
          
@@ -35,7 +37,7 @@ const html = `
     `;
 
 // eslint-disable-next-line react/prop-types
-const Preview: React.FC<PreviewProps> = ({ code }) => {
+const Preview: React.FC<PreviewProps> = ({ code, err }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
@@ -53,6 +55,7 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
         ref={iframe}
         sandbox="allow-scripts"
       />
+      {err && <span className="preview-error">{err}</span>}
     </div>
   );
 };
