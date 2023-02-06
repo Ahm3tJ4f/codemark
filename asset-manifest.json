@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/codemark/static/css/main.d1f833d4.chunk.css",
-    "main.js": "/codemark/static/js/main.8a283119.chunk.js",
-    "main.js.map": "/codemark/static/js/main.8a283119.chunk.js.map",
+    "main.js": "/codemark/static/js/main.24d39d57.chunk.js",
+    "main.js.map": "/codemark/static/js/main.24d39d57.chunk.js.map",
     "runtime-main.js": "/codemark/static/js/runtime-main.dd680ed9.js",
     "runtime-main.js.map": "/codemark/static/js/runtime-main.dd680ed9.js.map",
     "static/css/2.f5ba27b0.chunk.css": "/codemark/static/css/2.f5ba27b0.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.f5ba27b0.chunk.css",
     "static/js/2.451f9982.chunk.js",
     "static/css/main.d1f833d4.chunk.css",
-    "static/js/main.8a283119.chunk.js"
+    "static/js/main.24d39d57.chunk.js"
   ]
 }
