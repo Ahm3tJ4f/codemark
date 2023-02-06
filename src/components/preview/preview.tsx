@@ -5,24 +5,33 @@ interface PreviewProps {
 }
 
 const html = `
-  <html>
-    <head>
-    </head>
-    <body>
+<html>
+   <head>
+   </head>
+   <body>
       <div id="root"></div>
       <script>
-        window.addEventListener("message", (event)=> {
-         try{
-          eval(event.data)
-         } catch (err) {
-          console.log(err)
-          const root = document.querySelector("#root");
-          root.innerHTML = '<div style="color: #b80000;"><h4>Runtime Error</h4>' + err + '</div>';
+         function showError(err) {
+         console.error(err);
+         const root = document.querySelector("#root");
+         root.innerHTML =
+         '<div style="color: #b80000;"><h4>Runtime Error</h4>' + err + "</div>";
          }
-        })
+         
+         window.addEventListener("error", (event) => {
+         showError(event.error);
+         });
+         
+         window.addEventListener("message", (event) => {
+         try {
+         eval(event.data);
+         } catch (err) {
+         showError(event.error);
+         }
+         });
       </script>
-    </body>
-  </html>
+   </body>
+</html>
     `;
 
 // eslint-disable-next-line react/prop-types
@@ -31,7 +40,9 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
 
   useEffect(() => {
     iframe.current.srcdoc = html;
-    iframe.current.contentWindow.postMessage(code, "*");
+    setTimeout(() => {
+      iframe.current.contentWindow.postMessage(code, "*");
+    }, 10);
   }, [code]);
 
   return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeEditor from "components/code-editor/code-editor";
 import Preview from "components/preview/preview";
 import bundle from "../../bundler";
@@ -7,10 +7,16 @@ const CodeCell: React.FC = () => {
   const [input, setInput] = useState("");
   const [code, setCode] = useState("");
 
-  const onClick = async () => {
-    const bundledCode = await bundle(input);
-    setCode(bundledCode);
-  };
+  useEffect(() => {
+    const executionTimer = setTimeout(async () => {
+      const bundledCode = await bundle(input);
+      setCode(bundledCode);
+    }, 1500);
+
+    return () => {
+      clearTimeout(executionTimer);
+    };
+  }, [input]);
 
   const handleEditorChange = (value: string) => {
     setInput(value);
@@ -25,7 +31,6 @@ const CodeCell: React.FC = () => {
             initialValue="//start writing your code!"
           />
         </Resizable>
-
         <Preview code={code} />
       </div>
     </Resizable>
