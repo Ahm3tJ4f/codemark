@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/codemark/static/css/main.d1f833d4.chunk.css",
+    "main.js": "/codemark/static/js/main.8a283119.chunk.js",
+    "main.js.map": "/codemark/static/js/main.8a283119.chunk.js.map",
+    "runtime-main.js": "/codemark/static/js/runtime-main.dd680ed9.js",
+    "runtime-main.js.map": "/codemark/static/js/runtime-main.dd680ed9.js.map",
+    "static/css/2.f5ba27b0.chunk.css": "/codemark/static/css/2.f5ba27b0.chunk.css",
+    "static/js/2.451f9982.chunk.js": "/codemark/static/js/2.451f9982.chunk.js",
+    "static/js/2.451f9982.chunk.js.map": "/codemark/static/js/2.451f9982.chunk.js.map",
+    "index.html": "/codemark/index.html",
+    "static/css/2.f5ba27b0.chunk.css.map": "/codemark/static/css/2.f5ba27b0.chunk.css.map",
+    "static/css/main.d1f833d4.chunk.css.map": "/codemark/static/css/main.d1f833d4.chunk.css.map",
+    "static/js/2.451f9982.chunk.js.LICENSE.txt": "/codemark/static/js/2.451f9982.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dd680ed9.js",
+    "static/css/2.f5ba27b0.chunk.css",
+    "static/js/2.451f9982.chunk.js",
+    "static/css/main.d1f833d4.chunk.css",
+    "static/js/main.8a283119.chunk.js"
+  ]
+}
