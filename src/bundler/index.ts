@@ -24,13 +24,13 @@ const bundle = async (inputCode: string) => {
       },
     });
     return {
-      code: result.outputFiles[0].text,
+      bundledCode: result.outputFiles[0].text,
       err: "",
     };
   } catch (err) {
     if (err instanceof Error) {
       return {
-        code: "",
+        bundledCode: "",
         err: err.message,
       };
     } else {
