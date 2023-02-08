@@ -1,13 +1,17 @@
 import "bulmaswatch/superhero/bulmaswatch.min.css";
 import * as ReactDOM from "react-dom";
-// import CodeCell from "components/code-cell/code-cell";
-import TextEditor from "components/text-editor/text-editor";
+import { Provider } from "react-redux";
+import CodeCell from "components/code-cell/code-cell";
+import { store } from "state";
+//import TextEditor from "components/text-editor/text-editor";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <TextEditor />
-    </div>
+    <Provider store={store}>
+      <div>
+        <CodeCell />
+      </div>
+    </Provider>
   );
 };
 
