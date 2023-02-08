@@ -1,4 +1,3 @@
-import { type } from "os";
 import { ActionType } from "state/action-types";
 import { CellTypes } from "state/cell";
 
