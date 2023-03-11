@@ -3,6 +3,7 @@ import CodeEditor from "components/code-editor/code-editor";
 import Preview from "components/preview/preview";
 import bundle from "../../bundler";
 import Resizable from "components/resizable/resizable";
+
 const CodeCell: React.FC = () => {
   const [input, setInput] = useState("");
   const [bundledCode, setBundledCode] = useState("");

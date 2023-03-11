@@ -1,70 +1,70 @@
 {
-  "name": "redux-ts",
-  "version": "0.1.0",
-  "homepage": "https://Ahm3tJ4f.github.io/codemark",
-  "private": true,
-  "dependencies": {
-    "@monaco-editor/react": "3.7.5",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-redux": "7.1.25",
-    "@types/react-resizable": "3.0.2",
-    "@uiw/react-md-editor": "2.1.1",
-    "axios": "^0.21.1",
-    "bulmaswatch": "^0.8.1",
-    "esbuild-wasm": "0.8.27",
-    "immer": "^9.0.19",
-    "localforage": "^1.10.0",
-    "monaco-editor": "0.34.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "7.2.9",
-    "react-resizable": "3.0.4",
-    "react-scripts": "4.0.1",
-    "redux": "4.2.1",
-    "redux-thunk": "2.3.0",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@github/prettier-config": "^0.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.10",
-    "gh-pages": "^5.0.0",
-    "prettier": "^2.8.3"
-  }
+	"name": "redux-ts",
+	"version": "0.1.0",
+	"homepage": "https://Ahm3tJ4f.github.io/codemark",
+	"private": true,
+	"dependencies": {
+		"@monaco-editor/react": "3.7.5",
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^12.0.0",
+		"@types/react": "^17.0.0",
+		"@types/react-dom": "^17.0.0",
+		"@types/react-redux": "7.1.25",
+		"@types/react-resizable": "3.0.2",
+		"@uiw/react-md-editor": "2.1.1",
+		"axios": "^0.21.1",
+		"bulmaswatch": "^0.8.1",
+		"esbuild-wasm": "0.8.27",
+		"immer": "^9.0.19",
+		"localforage": "^1.10.0",
+		"monaco-editor": "0.34.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-redux": "7.2.9",
+		"react-resizable": "3.0.4",
+		"react-scripts": "4.0.1",
+		"redux": "4.2.1",
+		"redux-thunk": "2.3.0",
+		"typescript": "^4.1.2",
+		"web-vitals": "^1.0.1"
+	},
+	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+		"start": "react-scripts --openssl-legacy-provider start",
+		"build": "react-scripts --openssl-legacy-provider build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@github/prettier-config": "^0.0.4",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.31.10",
+		"gh-pages": "^5.0.0",
+		"prettier": "^2.8.3"
+	}
 }
