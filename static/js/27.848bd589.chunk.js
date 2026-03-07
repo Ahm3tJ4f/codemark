@@ -1,0 +1,2 @@
+(this["webpackJsonpredux-ts"]=this["webpackJsonpredux-ts"]||[]).push([[27],{161:function(t,e){Prism.languages.arff={comment:/%.*/,string:{pattern:/(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/@(?:attribute|data|end|relation)\b/i,number:/\b\d+(?:\.\d+)?\b/,punctuation:/[{},]/}}}]);
+//# sourceMappingURL=27.848bd589.chunk.js.map

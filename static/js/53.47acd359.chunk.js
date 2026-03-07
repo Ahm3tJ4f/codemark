@@ -1,0 +1,2 @@
+(this["webpackJsonpredux-ts"]=this["webpackJsonpredux-ts"]||[]).push([[53],{187:function(e,t){Prism.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}}]);
+//# sourceMappingURL=53.47acd359.chunk.js.map
