@@ -33,42 +33,42 @@ const App = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    
-    const drawTree = (startX, startY, length, angle, branchWidth, color1, color2) => {
+    canvas.width = 600;
+    canvas.height = 400;
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, 600, 500);
+
+    const drawTree = (startX, startY, len, angle, width) => {
       ctx.beginPath();
       ctx.save();
-      ctx.strokeStyle = color1;
-      ctx.fillStyle = color2;
-      ctx.lineWidth = branchWidth;
+      ctx.strokeStyle = '#333333';
+      ctx.lineWidth = width;
       ctx.translate(startX, startY);
-      ctx.rotate(angle * Math.PI/180);
+      ctx.rotate(angle * Math.PI / 180);
       ctx.moveTo(0, 0);
-      ctx.lineTo(0, -length);
+      ctx.lineTo(0, -len);
       ctx.stroke();
 
-      if (length < 10) {
+      if (len < 8) {
         ctx.restore();
         return;
       }
 
-      drawTree(0, -length, length * 0.8, -15, branchWidth * 0.8, color1, color2);
-      drawTree(0, -length, length * 0.8, 15, branchWidth * 0.8, color1, color2);
-      
+      drawTree(0, -len, len * 0.75, -20, width * 0.7);
+      drawTree(0, -len, len * 0.75, 20, width * 0.7);
       ctx.restore();
     };
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawTree(300, 400, 100, 0, 12, 'brown', 'green');
+    drawTree(300, 450, 80, 0, 10);
   }, []);
 
-  return React.createElement('div', { 
-    style: { display: 'flex', justifyContent: 'center', alignItems: 'center' } 
-  }, 
+  return React.createElement('div', {
+    style: { display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }
+  },
     React.createElement('canvas', {
       ref: canvasRef,
-      width: 600,
-      height: 500,
-      style: { border: '1px solid #ddd', backgroundColor: '#f5f5f5' }
+      style: { border: '1px solid #ccc', borderRadius: '4px' }
     })
   );
 };
@@ -76,28 +76,37 @@ const App = () => {
 ReactDOM.render(React.createElement(App), document.querySelector('#root'));`;
 
 // Initial text cell content
-const welcomeTextContent = `# Welcome to CodeMark! 🎨🌳
+const welcomeTextContent = `# Fractal Tree with esbuild-wasm 🌳⚡
 
-This notebook demonstrates a **recursive fractal tree** implementation using HTML5 Canvas and React hooks.
+This notebook demonstrates a **recursive fractal tree** rendered using HTML5 Canvas, bundled entirely in the browser using WebAssembly.
 
-## How It Works
+## Technical Overview
 
-The fractal tree below is generated using a **recursive algorithm** that:
+### WebAssembly Bundling
+- **esbuild-wasm**: Fast browser-based bundler running in WebAssembly
+- **No server required**: All transpilation happens client-side
+- **Performance**: ~1.2s cold start, ~5-20ms hot reload
 
-1. **Starts with a trunk** - Draws a vertical line from the bottom center
-2. **Creates branches** - At the end of each line, splits into two new branches at ±15° angles
-3. **Recedes gradually** - Each branch is 80% of the length of its parent
-4. **Stops at threshold** - When branch length < 10px, it stops recursing (creating the leaves)
+### Canvas API Techniques
+- **ctx.save() / ctx.restore()**: Save/restore transformation state
+- **ctx.translate()**: Move origin to branch endpoint
+- **ctx.rotate()**: Rotate coordinate system for each branch
 
-## Key Concepts
+### Complexity
+- **Time**: O(2^n) where n = recursion depth (~6-7 levels)
+- **Space**: O(n) for call stack depth
+- **Branches**: ~64-128 lines drawn
 
-- **Recursion**: The \`drawTree\` function calls itself to create branches
-- **Canvas API**: Uses \`ctx.save()\`, \`ctx.translate()\`, and \`ctx.rotate()\` to transform the drawing context
-- **React Hooks**: \`useRef\` to access the canvas, \`useEffect\` to draw when component mounts
+## Try Editing!
+Modify the code cell to change:
+- Branch angle
+- Length ratio
+- Base case threshold
+- Line colors
 
 ---
 
-*Click the code cell below to see the implementation!*`;
+*Click the code cell to see the fractal tree!*`;
 
 // Create initial cells
 const textCellId = randomId();

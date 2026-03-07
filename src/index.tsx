@@ -4,6 +4,7 @@ import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import CellList from "components/cell-list/cell-list";
 import { store } from "state";
+import "./utils/benchmark";
 
 const App: React.FC = () => {
   return (
