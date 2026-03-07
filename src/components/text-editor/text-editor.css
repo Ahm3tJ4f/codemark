@@ -1,68 +1,111 @@
 .w-md-editor .title {
- line-height: unset !important;
- font-size: unset !important;
- font-weight: unset !important;
-color: #d4d4d4 !important;
+  line-height: unset !important;
+  font-size: unset !important;
+  font-weight: unset !important;
+  color: var(--text-primary) !important;
 }
 
 .w-md-editor ul {
-    line-height: 1.0 !important ;
+  line-height: 1 !important;
 }
 
 .text-editor .w-md-editor-bar svg {
-    display: none;
+  display: none;
 }
 
 .text-editor .w-md-editor-bar {
-   position: relative;
-   width: 100%;
-   height: 11px;
-   cursor: row-resize;   
-   background-repeat: no-repeat;
-   background-color: #37414b;
-   background-position: 50%;
-   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+  position: relative;
+  width: 100%;
+  height: 11px;
+  cursor: row-resize;
+  background-repeat: no-repeat;
+  background-color: var(--border-color);
+  background-position: 50%;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
 }
 
 .text-editor em {
   font-style: italic;
 }
- 
+
 .text-editor .wmde-markdown hr {
-  border-top: 1px solid #dee5ed;
+  border-top: 1px solid var(--border-color);
 }
- 
+
 .text-editor .wmde-markdown ol {
   list-style: decimal;
 }
- 
+
 .text-editor .w-md-editor-show-live {
-  /* Hide menu bar buttons to prevent accidental delete */
   z-index: 20;
 }
- 
+
 .text-editor .w-md-editor-toolbar {
-  background-color: #37414b;
-  border-bottom: 1px solid gray;
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-color);
 }
- 
+
 .text-editor .w-md-editor-toolbar li button {
-  color: #d4d4d4;
+  color: var(--text-primary);
 }
- 
+
 .text-editor .w-md-editor-content {
-  background-color: #202123;
+  background-color: var(--bg-elevated);
 }
- 
+
 .text-editor .w-md-editor,
 .text-editor .w-md-editor .w-md-editor-text-pre {
-  color: #d4d4d4;
+  color: var(--text-primary);
 }
- 
+
 .text-editor .w-md-editor-text-pre .bold {
   color: unset;
 }
- 
+
 .text-editor .token.list.punctuation {
   background-color: unset;
+}
+
+/* Markdown preview styling */
+.wmde-markdown {
+  background-color: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.wmde-markdown p,
+.wmde-markdown li {
+  color: var(--text-secondary) !important;
+}
+
+.wmde-markdown code {
+  background-color: var(--bg-muted) !important;
+  color: var(--accent) !important;
+}
+
+.wmde-markdown pre {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.wmde-markdown blockquote {
+  border-left-color: var(--accent) !important;
+  color: var(--text-secondary) !important;
+}
+
+.wmde-markdown a {
+  color: var(--accent) !important;
+}
+
+.wmde-markdown a:hover {
+  color: var(--accent-hover) !important;
 }

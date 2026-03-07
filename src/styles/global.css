@@ -1,0 +1,73 @@
+/* Perplexity Color Palette */
+:root {
+  --bg-primary: #121212;
+  --bg-elevated: #1d1d1d;
+  --bg-muted: #0f2e33;
+  --border-color: #2a2a2a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #b8c0c2;
+  --accent: #20808d;
+  --accent-hover: #2a9aaa;
+  --error: #ff6b6b;
+}
+
+/* Global styles */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Override Bulma button styles */
+.button {
+  background-color: var(--bg-elevated) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.button:hover {
+  background-color: var(--bg-muted) !important;
+  border-color: var(--accent) !important;
+}
+
+.button.is-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+.button.is-primary:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.button.is-info {
+  background-color: var(--bg-elevated) !important;
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+.button.is-info:hover {
+  background-color: var(--bg-muted) !important;
+  color: var(--accent-hover) !important;
+}
+
+.button.is-danger {
+  background-color: transparent !important;
+  border-color: var(--error) !important;
+  color: var(--error) !important;
+}
+
+.button.is-danger:hover {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.card-content {
+  color: var(--text-primary) !important;
+}

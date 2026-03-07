@@ -1,18 +1,28 @@
 .editor-wrapper {
-    position: relative;
-    height: 100%;
-    width: calc(100% - 10px);
+  position: relative;
+  height: 100%;
+  width: calc(100% - 10px);
 }
 
 .editor-wrapper .button-format {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 90ms;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 90ms;
 }
 
 .editor-wrapper:hover .button-format {
-    opacity: 1.0;
+  opacity: 1;
+}
+
+/* Override Monaco Editor background to match theme */
+.monaco-editor,
+.monaco-editor .overflow-guard {
+  background-color: var(--bg-elevated) !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--bg-elevated) !important;
 }
